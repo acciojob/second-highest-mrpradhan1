@@ -10,13 +10,14 @@
 	<script>
 		function secondHighest(arr) {
 			if (arr.length < 2) {
-				return "-Infinity"; // Return -Infinity for empty array or single element array
+				return "undefined"; // Return -Infinity for empty array or single element array
 			} 
 			
 			// Check if all elements in the array are the same
 			const allSame = arr.every((element, index, array) => element === array[0]);
 			if (allSame) {
-				return "-Infinity";
+				arr.sort((a, b) => b - a);
+				return arr[0];
 			}
 
 			arr.sort((a, b) => b - a);
